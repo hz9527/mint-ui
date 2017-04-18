@@ -45,6 +45,7 @@
     "vue": "^2.1.8"
   },
   "devDependencies": {
+    "babel-plugin-component": "^0.9.1",
     "cooking": "^1.2.4",
     "cooking-buble": "^0.1.2",
     "cooking-lint": "^0.1.2",
