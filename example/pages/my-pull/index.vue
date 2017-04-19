@@ -1,13 +1,13 @@
 <template>
 	<div class="pull-con" @touchstart='touchStart' @touchmove='touchMove' @touchend='touchEnd' :style='{"transform": "translate(0," + translate + "px )"}'>
-		<div class="pull" v-show="state == 'pullTop'">
+		<div class="pull" v-show="state == 'pullTop'" :style="{'maxHeight': translate + 'px'}">
       {{loadState ? '松开刷新' : '继续下拉刷新'}}
     </div>
 		<slot name='topLoad'>
 			<div class="loading" v-show="loadingShow && catchState == 'pullTop'">刷新中...</div>
     </slot>
 		<slot name='list'></slot>
-		<div class="pull" v-show="state == 'pullDown'">{{loadState ? '松开刷新' : '继续下拉刷新'}}</div>
+		<div class="pull" v-show="state == 'pullDown'" :style="{'maxHeight': -translate + 'px'}">{{loadState ? '松开刷新' : '继续下拉刷新'}}</div>
 		<div v-show="loadingShow && catchState == 'pullDown'" ref='pullDown'>
 			<slot name='bottomLoad'>
 				<div class="loading" style='height:30px'>刷新中...</div>
@@ -91,10 +91,8 @@ export default {
 
     },
     touchEnd(e) {
-      // console.log(3);
       if (this.loadState && Date.now() - this.startTime >= this.moveTime) {
         // emit event
-        console.log(2);
         this.catchState = this.state;
         this.$emit('loading', this.state);
         if (this.state === 'pullDown') {
@@ -130,5 +128,12 @@ export default {
 };
 </script>
  <style scoped>
-
+.pull-con{
+position: relative;
+overflow: hidden;
+}
+.pull{
+ height:80px;
+background: #f55;
+}
  </style>

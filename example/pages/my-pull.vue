@@ -59,8 +59,8 @@ export default {
 .my-pull{
   margin-top: 50px;
 	border: 1px solid #f55;
-	height: 400px;
-  overflow: auto;
+	/*height: 400px;
+  overflow: auto;*/
 }
 .item{
   height:40px;
