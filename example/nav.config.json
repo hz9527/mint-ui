@@ -12,6 +12,11 @@
         "name": "Indicator",
         "icon": "indicator"
       },
+			{
+        "path": "/my-pull",
+        "name": "My Pull",
+        "icon": "pull-up"
+      },
       {
         "path": "/pull-down",
         "name": "Pull down",
